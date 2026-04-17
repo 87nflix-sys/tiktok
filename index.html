@@ -1,0 +1,35 @@
+HTML
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <iframe id="frame" src=""></iframe>
+
+    <script>
+        // Pega aquí tus dos enlaces
+        const links = [
+            "https://tikfinity.zerody.one/widget/ranking?cid=34954",
+            "https://tikfinity.zerody.one/widget/topliker?cid=34954"
+        ];
+        
+        let index = 0;
+        const frame = document.getElementById('frame');
+
+        function cambiarLink() {
+            frame.src = links[index];
+            index = (index + 1) % links.length; // Cambia entre 0 y 1
+        }
+
+        // Cambia el número 10000 por el tiempo en milisegundos (10 segundos en este ejemplo)
+        setInterval(cambiarLink, 5000);
+        
+        // Cargar el primero al iniciar
+        cambiarLink();
+    </script>
+</body>
+</html>
